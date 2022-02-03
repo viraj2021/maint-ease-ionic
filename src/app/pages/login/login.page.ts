@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { LoginService } from '../../services/login/login.service';
 
 @Component({
@@ -19,13 +20,16 @@ export class LoginPage implements OnInit {
   private loginErrorString: string;
 
   constructor(
+    public translateService: TranslateService,
     public loginService: LoginService,
     public toastController: ToastController,
     public navController: NavController
   ) {}
 
   ngOnInit() {
-      this.loginErrorString = 'Error during login';
+    this.translateService.get('LOGIN_ERROR').subscribe((value) => {
+      this.loginErrorString = value;
+    });
   }
 
   doLogin() {

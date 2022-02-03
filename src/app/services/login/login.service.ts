@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '../auth/account.service';
 import { AuthServerProvider } from '../auth/auth-jwt.service';
 
@@ -8,7 +9,8 @@ import { AuthServerProvider } from '../auth/auth-jwt.service';
 export class LoginService {
   constructor(
     private accountService: AccountService,
-    private authServerProvider: AuthServerProvider
+    private authServerProvider: AuthServerProvider,
+    private translate: TranslateService
   ) {}
 
   login(credentials, callback?) {
@@ -21,7 +23,7 @@ export class LoginService {
             // After the login the language will be changed to
             // the language selected by the user during his registration
             if (account !== null) {
-             // this.translate.use(account.langKey);
+              this.translate.use(account.langKey);
             }
             resolve(data);
           });
