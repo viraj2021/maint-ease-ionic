@@ -1,0 +1,7 @@
+{
+  "name": "MaintEase",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
