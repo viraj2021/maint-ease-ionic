@@ -8,8 +8,8 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'workorder',
-        loadChildren: () => import('../workorder/workorder.module').then(m => m.WorkOrderPageModule)
+        path: 'work-order',
+        loadChildren: () => import('../work-order/work-order.module').then(m => m.WorkOrderPageModule)
       },
       {
         path: 'asset',
@@ -21,14 +21,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'tabs/workorder',
+        redirectTo: 'tabs/work-order',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: 'tabs/workorder',
+    redirectTo: 'tabs/work-order',
     pathMatch: 'full'
   }
 ];
