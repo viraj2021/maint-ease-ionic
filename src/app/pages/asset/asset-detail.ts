@@ -27,7 +27,7 @@ export class AssetDetailPage implements OnInit {
   }
 
   open(item: Asset) {
-    this.navController.navigateForward('/tabs/entities/asset/' + item.id + '/edit');
+    this.navController.navigateForward('/tabs/asset/' + item.id + '/edit');
   }
 
   async deleteModal(item: Asset) {
@@ -43,7 +43,7 @@ export class AssetDetailPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.assetService.delete(item.id).subscribe(() => {
-              this.navController.navigateForward('/tabs/entities/asset');
+              this.navController.navigateForward('/tabs/asset');
             });
           },
         },

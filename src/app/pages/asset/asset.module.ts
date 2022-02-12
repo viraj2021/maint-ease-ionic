@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AssetPage } from './asset.page';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
-
+import { AssetDetailPage } from './asset-detail';
+import { AssetUpdatePage } from './asset-update';
 import { AssetRoutingModule } from './asset-routing.module';
 
 @NgModule({
@@ -19,6 +20,6 @@ import { AssetRoutingModule } from './asset-routing.module';
     TranslateModule,
     AssetRoutingModule
   ],
-  declarations: [AssetPage]
+  declarations: [AssetPage, AssetDetailPage, AssetUpdatePage]
 })
 export class AssetPageModule {}

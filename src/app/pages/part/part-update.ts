@@ -220,7 +220,7 @@ export class PartUpdatePage implements OnInit {
     this.isSaving = false;
     const toast = await this.toastCtrl.create({ message: `Part ${action} successfully.`, duration: 2000, position: 'middle' });
     await toast.present();
-    await this.navController.navigateBack('/tabs/entities/part');
+    await this.navController.navigateBack('/tabs/part');
   }
 
   previousState() {

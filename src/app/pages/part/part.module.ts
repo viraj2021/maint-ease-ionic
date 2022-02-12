@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { PartPage } from './part.page';
+import { PartUpdatePage } from './part-update';
+import { PartDetailPage } from './part-detail';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
 
 import { PartRoutingModule } from './part-routing.module';
@@ -17,9 +19,8 @@ import { PartRoutingModule } from './part-routing.module';
     ReactiveFormsModule,
     ExploreContainerComponentModule,
     TranslateModule,
-    RouterModule.forChild([{ path: '', component: PartPage }]),
     PartRoutingModule,
   ],
-  declarations: [PartPage]
+  declarations: [PartPage,  PartUpdatePage, PartDetailPage]
 })
 export class PartPageModule {}

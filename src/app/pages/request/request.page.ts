@@ -55,11 +55,11 @@ export class RequestPage {
   }
 
   async new() {
-    await this.navController.navigateForward('/tabs/entities/request/new');
+    await this.navController.navigateForward('/tabs/request/new');
   }
 
   async edit(item: IonItemSliding, request: Request) {
-    await this.navController.navigateForward('/tabs/entities/request/' + request.id + '/edit');
+    await this.navController.navigateForward('/tabs/request/' + request.id + '/edit');
     await item.close();
   }
 
@@ -75,6 +75,6 @@ export class RequestPage {
   }
 
   async view(request: Request) {
-    await this.navController.navigateForward('/tabs/entities/request/' + request.id + '/view');
+    await this.navController.navigateForward('/tabs/request/' + request.id + '/view');
   }
 }

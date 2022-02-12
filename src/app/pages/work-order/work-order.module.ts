@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { WorkOrderPage } from './work-order.page';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
+import { WorkOrderUpdatePage } from './work-order-update';
+import { WorkOrderDetailPage } from './work-order-detail';
 
 import { WorkOrderRoutingModule } from './work-order-routing.module';
 
@@ -14,10 +16,9 @@ import { WorkOrderRoutingModule } from './work-order-routing.module';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ExploreContainerComponentModule,
     TranslateModule,
     WorkOrderRoutingModule
   ],
-  declarations: [WorkOrderPage]
+  declarations: [WorkOrderPage, WorkOrderDetailPage, WorkOrderUpdatePage]
 })
 export class WorkOrderPageModule {}

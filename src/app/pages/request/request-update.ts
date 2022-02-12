@@ -135,7 +135,7 @@ export class RequestUpdatePage implements OnInit {
     this.isSaving = false;
     const toast = await this.toastCtrl.create({ message: `Request ${action} successfully.`, duration: 2000, position: 'middle' });
     await toast.present();
-    await this.navController.navigateBack('/tabs/entities/request');
+    await this.navController.navigateBack('/tabs/request');
   }
 
   previousState() {

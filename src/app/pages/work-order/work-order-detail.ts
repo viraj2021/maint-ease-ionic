@@ -27,7 +27,7 @@ export class WorkOrderDetailPage implements OnInit {
   }
 
   open(item: WorkOrder) {
-    this.navController.navigateForward('/tabs/entities/work-order/' + item.id + '/edit');
+    this.navController.navigateForward('/tabs/work-order/' + item.id + '/edit');
   }
 
   async deleteModal(item: WorkOrder) {
@@ -43,7 +43,7 @@ export class WorkOrderDetailPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.workOrderService.delete(item.id).subscribe(() => {
-              this.navController.navigateForward('/tabs/entities/work-order');
+              this.navController.navigateForward('/tabs/work-order');
             });
           },
         },

@@ -27,7 +27,7 @@ export class PartDetailPage implements OnInit {
   }
 
   open(item: Part) {
-    this.navController.navigateForward('/tabs/entities/part/' + item.id + '/edit');
+    this.navController.navigateForward('/tabs/part/' + item.id + '/edit');
   }
 
   async deleteModal(item: Part) {
@@ -43,7 +43,7 @@ export class PartDetailPage implements OnInit {
           text: 'Delete',
           handler: () => {
             this.partService.delete(item.id).subscribe(() => {
-              this.navController.navigateForward('/tabs/entities/part');
+              this.navController.navigateForward('/tabs/part');
             });
           },
         },

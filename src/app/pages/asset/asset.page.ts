@@ -68,11 +68,11 @@ export class AssetPage {
   }
 
   async new() {
-    await this.navController.navigateForward('/tabs/entities/asset/new');
+    await this.navController.navigateForward('/tabs/asset/new');
   }
 
   async edit(item: IonItemSliding, asset: Asset) {
-    await this.navController.navigateForward('/tabs/entities/asset/' + asset.id + '/edit');
+    await this.navController.navigateForward('/tabs/asset/' + asset.id + '/edit');
     await item.close();
   }
 
@@ -88,7 +88,7 @@ export class AssetPage {
   }
 
   async view(asset: Asset) {
-    await this.navController.navigateForward('/tabs/entities/asset/' + asset.id + '/view');
+    await this.navController.navigateForward('/tabs/asset/' + asset.id + '/view');
   }
 
 }

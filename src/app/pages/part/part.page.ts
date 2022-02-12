@@ -67,11 +67,11 @@ export class PartPage {
   }
 
   async new() {
-    await this.navController.navigateForward('/tabs/entities/part/new');
+    await this.navController.navigateForward('/tabs/part/new');
   }
 
   async edit(item: IonItemSliding, part: Part) {
-    await this.navController.navigateForward('/tabs/entities/part/' + part.id + '/edit');
+    await this.navController.navigateForward('/tabs/part/' + part.id + '/edit');
     await item.close();
   }
 
@@ -87,7 +87,7 @@ export class PartPage {
   }
 
   async view(part: Part) {
-    await this.navController.navigateForward('/tabs/entities/part/' + part.id + '/view');
+    await this.navController.navigateForward('/tabs/part/' + part.id + '/view');
   }
 
 }

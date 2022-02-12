@@ -246,7 +246,7 @@ export class WorkOrderUpdatePage implements OnInit {
     this.isSaving = false;
     const toast = await this.toastCtrl.create({ message: `WorkOrder ${action} successfully.`, duration: 2000, position: 'middle' });
     await toast.present();
-    await this.navController.navigateBack('/tabs/entities/work-order');
+    await this.navController.navigateBack('/tabs/work-order');
   }
 
   previousState() {

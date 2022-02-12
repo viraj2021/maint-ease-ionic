@@ -228,7 +228,7 @@ export class AssetUpdatePage implements OnInit {
     this.isSaving = false;
     const toast = await this.toastCtrl.create({ message: `Asset ${action} successfully.`, duration: 2000, position: 'middle' });
     await toast.present();
-    await this.navController.navigateBack('/tabs/entities/asset');
+    await this.navController.navigateBack('/tabs/asset');
   }
 
   previousState() {

@@ -67,11 +67,11 @@ export class WorkOrderPage {
   }
 
   async new() {
-    await this.navController.navigateForward('/tabs/entities/work-order/new');
+    await this.navController.navigateForward('/tabs/work-order/new');
   }
 
   async edit(item: IonItemSliding, workOrder: WorkOrder) {
-    await this.navController.navigateForward('/tabs/entities/work-order/' + workOrder.id + '/edit');
+    await this.navController.navigateForward('/tabs/work-order/' + workOrder.id + '/edit');
     await item.close();
   }
 
@@ -87,7 +87,7 @@ export class WorkOrderPage {
   }
 
   async view(workOrder: WorkOrder) {
-    await this.navController.navigateForward('/tabs/entities/work-order/' + workOrder.id + '/view');
+    await this.navController.navigateForward('/tabs/work-order/' + workOrder.id + '/view');
   }
 
 }
