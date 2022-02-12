@@ -1,0 +1,294 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Work Order </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">ID</ion-label>
+      <div item-content>
+        <span>{{workOrder.id}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Title</ion-label>
+      <div item-content>
+        <span>{{workOrder.title}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Wonumber</ion-label>
+      <div item-content>
+        <span>{{workOrder.wonumber}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Description</ion-label>
+      <div item-content>
+        <span>{{workOrder.description}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Priority</ion-label>
+      <div item-content>
+        <span>{{workOrder.priority}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Due Date</ion-label>
+      <div item-content>
+        <span>{{workOrder.dueDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Scheduled Date</ion-label>
+      <div item-content>
+        <span>{{workOrder.scheduledDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Estimated Duration</ion-label>
+      <div item-content>
+        <span>{{workOrder.estimatedDuration}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Actual Duration</ion-label>
+      <div item-content>
+        <span>{{workOrder.actualDuration}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Completion Date</ion-label>
+      <div item-content>
+        <span>{{workOrder.completionDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Status</ion-label>
+      <div item-content>
+        <span>{{workOrder.status}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Repeating</ion-label>
+      <div item-content>
+        <span>{{workOrder.isRepeating}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Generated</ion-label>
+      <div item-content>
+        <span>{{workOrder.isGenerated}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Require Signature</ion-label>
+      <div item-content>
+        <span>{{workOrder.requireSignature}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Share With Email</ion-label>
+      <div item-content>
+        <span>{{workOrder.shareWithEmail}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Archived</ion-label>
+      <div item-content>
+        <span>{{workOrder.isArchived}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Custom Fields</ion-label>
+      <div item-content>
+        <span>{{workOrder.customFields}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Active</ion-label>
+      <div item-content>
+        <span>{{workOrder.isActive}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Work Instruction</ion-label>
+      <div item-content>
+        <span>{{workOrder.workInstruction}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Estimated Labor</ion-label>
+      <div item-content>
+        <span>{{workOrder.estimatedLabor}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Actual Labor</ion-label>
+      <div item-content>
+        <span>{{workOrder.actualLabor}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Problem Description</ion-label>
+      <div item-content>
+        <span>{{workOrder.problemDescription}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Solution Description</ion-label>
+      <div item-content>
+        <span>{{workOrder.solutionDescription}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Root Cause Description</ion-label>
+      <div item-content>
+        <span>{{workOrder.rootCauseDescription}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Associated P Os</ion-label>
+      <div item-content>
+        <span>{{workOrder.associatedPOs}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Linked W Os</ion-label>
+      <div item-content>
+        <span>{{workOrder.linkedWOs}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Ref Item</ion-label>
+      <div item-content>
+        <span>{{workOrder.refItem}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Verified</ion-label>
+      <div item-content>
+        <span>{{workOrder.isVerified}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Verified By</ion-label>
+      <div item-content>
+        <span>{{workOrder.verifiedBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Verification Date</ion-label>
+      <div item-content>
+        <span>{{workOrder.verificationDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Create Date</ion-label>
+      <div item-content>
+        <span>{{workOrder.createDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Update Date</ion-label>
+      <div item-content>
+        <span>{{workOrder.updateDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Completed By</ion-label>
+      <div item-content>
+        <span>{{workOrder.completedBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Created By</ion-label>
+      <div item-content>
+        <span>{{workOrder.createdBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Updated By</ion-label>
+      <div item-content>
+        <span>{{workOrder.updatedBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repeat Definition</ion-label>
+      <div item-content *ngIf="workOrder.repeatDefinitionId">
+        <a>{{workOrder.repeatDefinitionId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tenant</ion-label>
+      <div item-content *ngIf="workOrder.tenantId">
+        <a>{{workOrder.tenantId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Additional Assignee</ion-label>
+      <div item-content>
+        <span *ngFor="let additionalAssignee of workOrder.additionalAssignees; let last = last">
+          <a>{{additionalAssignee.id}}</a>{{last ? '' : ', '}}
+        </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Vendor</ion-label>
+      <div item-content>
+        <span *ngFor="let vendor of workOrder.vendors; let last = last"> <a>{{vendor.name}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Customer</ion-label>
+      <div item-content>
+        <span *ngFor="let customer of workOrder.customers; let last = last"> <a>{{customer.name}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Asset</ion-label>
+      <div item-content>
+        <span *ngFor="let asset of workOrder.assets; let last = last"> <a>{{asset.id}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Part</ion-label>
+      <div item-content>
+        <span *ngFor="let part of workOrder.parts; let last = last"> <a>{{part.id}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Location</ion-label>
+      <div item-content *ngIf="workOrder.locationId">
+        <a>{{workOrder.locationId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Assignee</ion-label>
+      <div item-content *ngIf="workOrder.assigneeId">
+        <a>{{workOrder.assigneeId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Team</ion-label>
+      <div item-content *ngIf="workOrder.teamId">
+        <a>{{workOrder.teamName}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <div item-content *ngIf="workOrder.categoryId">
+        <a>{{workOrder.categoryName}}</a>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(workOrder)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(workOrder)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>

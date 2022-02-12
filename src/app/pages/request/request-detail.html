@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Request </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">ID</ion-label>
+      <div item-content>
+        <span>{{request.id}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Title</ion-label>
+      <div item-content>
+        <span>{{request.title}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Request Id</ion-label>
+      <div item-content>
+        <span>{{request.requestId}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Description</ion-label>
+      <div item-content>
+        <span>{{request.description}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Priority</ion-label>
+      <div item-content>
+        <span>{{request.priority}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Active</ion-label>
+      <div item-content>
+        <span>{{request.isActive}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Additional Info</ion-label>
+      <div item-content>
+        <span>{{request.additionalInfo}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Approver Remark</ion-label>
+      <div item-content>
+        <span>{{request.approverRemark}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Create Date</ion-label>
+      <div item-content>
+        <span>{{request.createDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Update Date</ion-label>
+      <div item-content>
+        <span>{{request.updateDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Created By</ion-label>
+      <div item-content>
+        <span>{{request.createdBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Updated By</ion-label>
+      <div item-content>
+        <span>{{request.updatedBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Asset</ion-label>
+      <div item-content *ngIf="request.assetId">
+        <a>{{request.assetId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Location</ion-label>
+      <div item-content *ngIf="request.locationId">
+        <a>{{request.locationId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tenant</ion-label>
+      <div item-content *ngIf="request.tenantId">
+        <a>{{request.tenantId}}</a>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(request)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(request)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>

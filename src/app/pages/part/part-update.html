@@ -1,0 +1,185 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Part </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!isReadyToSave" (click)="save()" color="primary">
+        <span *ngIf="platform.is('ios')">{{'DONE_BUTTON' | translate}}</span>
+        <ion-icon name="checkmark" *ngIf="!platform.is('ios')"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form *ngIf="form" name="form" [formGroup]="form" (ngSubmit)="save()">
+    <ion-list>
+      <ion-item [hidden]="!form.id">
+        <ion-label>ID</ion-label>
+        <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" name="name" formControlName="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Part Id</ion-label>
+        <ion-input type="text" name="partId" formControlName="partId"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Bar Code</ion-label>
+        <ion-input type="text" name="barCode" formControlName="barCode"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-input type="text" name="description" formControlName="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Cost Per Unit</ion-label>
+        <ion-input type="number" name="costPerUnit" formControlName="costPerUnit"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Quantity</ion-label>
+        <ion-input type="number" name="quantity" formControlName="quantity"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Min Quantity</ion-label>
+        <ion-input type="number" name="minQuantity" formControlName="minQuantity"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Serial Number</ion-label>
+        <ion-input type="text" name="serialNumber" formControlName="serialNumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Make</ion-label>
+        <ion-input type="text" name="make" formControlName="make"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Model</ion-label>
+        <ion-input type="text" name="model" formControlName="model"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Area</ion-label>
+        <ion-input type="text" name="area" formControlName="area"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Additional Info</ion-label>
+        <ion-input type="text" name="additionalInfo" formControlName="additionalInfo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-textarea placeholder="Custom Fields" formControlName="customFields" id="field_customFields"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>Is Child</ion-label>
+        <ion-checkbox formControlName="isChild"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Is Active</ion-label>
+        <ion-checkbox formControlName="isActive"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Is Tool</ion-label>
+        <ion-checkbox formControlName="isTool"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label>Create Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="createDate" id="field_createDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Update Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="updateDate" id="field_updateDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Created By</ion-label>
+        <ion-input type="text" name="createdBy" formControlName="createdBy"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Updated By</ion-label>
+        <ion-input type="text" name="updatedBy" formControlName="updatedBy"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tenant</ion-label>
+        <ion-select id="field_tenant" formControlName="tenantId" [compareWith]="compareTenant">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option [value]="tenantOption.id" *ngFor="let tenantOption of tenants; trackBy: trackTenantById"
+            >{{tenantOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Location</ion-label>
+        <ion-select id="field_location" multiple="true" formControlName="locations" [compareWith]="compareLocation">
+          <ion-select-option [value]="locationOption" *ngFor="let locationOption of locations; trackBy: trackLocationById"
+            >{{locationOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Worker</ion-label>
+        <ion-select id="field_worker" multiple="true" formControlName="workers" [compareWith]="compareEmployee">
+          <ion-select-option [value]="employeeOption" *ngFor="let employeeOption of employees; trackBy: trackEmployeeById"
+            >{{employeeOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Team</ion-label>
+        <ion-select id="field_team" multiple="true" formControlName="teams" [compareWith]="compareTeam">
+          <ion-select-option [value]="teamOption" *ngFor="let teamOption of teams; trackBy: trackTeamById"
+            >{{teamOption.name}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Vendor</ion-label>
+        <ion-select id="field_vendor" multiple="true" formControlName="vendors" [compareWith]="compareVendor">
+          <ion-select-option [value]="vendorOption" *ngFor="let vendorOption of vendors; trackBy: trackVendorById"
+            >{{vendorOption.name}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Customer</ion-label>
+        <ion-select id="field_customer" multiple="true" formControlName="customers" [compareWith]="compareCustomer">
+          <ion-select-option [value]="customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById"
+            >{{customerOption.name}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Parent</ion-label>
+        <ion-select id="field_parent" formControlName="parentId" [compareWith]="comparePart">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option [value]="partOption.id" *ngFor="let partOption of parts; trackBy: trackPartById"
+            >{{partOption.partId}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Purchaseorder</ion-label>
+        <ion-select id="field_purchaseorder" formControlName="purchaseorderId" [compareWith]="comparePurchaseOrder">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option
+            [value]="purchaseOrderOption.id"
+            *ngFor="let purchaseOrderOption of purchaseOrders; trackBy: trackPurchaseOrderById"
+            >{{purchaseOrderOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-select id="field_category" formControlName="categoryId" [compareWith]="comparePartCategory">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option
+            [value]="partCategoryOption.id"
+            *ngFor="let partCategoryOption of partCategories; trackBy: trackPartCategoryById"
+            >{{partCategoryOption.name}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Request </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button [disabled]="!isReadyToSave" (click)="save()" color="primary">
+        <span *ngIf="platform.is('ios')">{{'DONE_BUTTON' | translate}}</span>
+        <ion-icon name="checkmark" *ngIf="!platform.is('ios')"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form *ngIf="form" name="form" [formGroup]="form" (ngSubmit)="save()">
+    <ion-list>
+      <ion-item [hidden]="!form.id">
+        <ion-label>ID</ion-label>
+        <ion-input type="hidden" id="id" formControlName="id" readonly></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Title</ion-label>
+        <ion-input type="text" name="title" formControlName="title"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Request Id</ion-label>
+        <ion-input type="text" name="requestId" formControlName="requestId"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Description</ion-label>
+        <ion-input type="text" name="description" formControlName="description"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Priority</ion-label>
+        <ion-select formControlName="priority" id="field_priority">
+          <ion-select-option value="CRITICAL">{{'Priority.CRITICAL' | translate}}</ion-select-option>
+          <ion-select-option value="HIGH">{{'Priority.HIGH' | translate}}</ion-select-option>
+          <ion-select-option value="MEDIUM">{{'Priority.MEDIUM' | translate}}</ion-select-option>
+          <ion-select-option value="LOW">{{'Priority.LOW' | translate}}</ion-select-option>
+          <ion-select-option value="NONE">{{'Priority.NONE' | translate}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Is Active</ion-label>
+        <ion-checkbox formControlName="isActive"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Additional Info</ion-label>
+        <ion-input type="text" name="additionalInfo" formControlName="additionalInfo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Approver Remark</ion-label>
+        <ion-input type="text" name="approverRemark" formControlName="approverRemark"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Create Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="createDate" id="field_createDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Update Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY HH:mm" formControlName="updateDate" id="field_updateDate"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Created By</ion-label>
+        <ion-input type="text" name="createdBy" formControlName="createdBy"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Updated By</ion-label>
+        <ion-input type="text" name="updatedBy" formControlName="updatedBy"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Asset</ion-label>
+        <ion-select id="field_asset" formControlName="assetId" [compareWith]="compareAsset">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option [value]="assetOption.id" *ngFor="let assetOption of assets; trackBy: trackAssetById"
+            >{{assetOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Location</ion-label>
+        <ion-select id="field_location" formControlName="locationId" [compareWith]="compareLocation">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option [value]="locationOption.id" *ngFor="let locationOption of locations; trackBy: trackLocationById"
+            >{{locationOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tenant</ion-label>
+        <ion-select id="field_tenant" formControlName="tenantId" [compareWith]="compareTenant">
+          <ion-select-option [value]="null"></ion-select-option>
+          <ion-select-option [value]="tenantOption.id" *ngFor="let tenantOption of tenants; trackBy: trackTenantById"
+            >{{tenantOption.id}}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

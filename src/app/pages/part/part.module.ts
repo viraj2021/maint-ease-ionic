@@ -2,20 +2,23 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { PartPage } from './part.page';
 import { ExploreContainerComponentModule } from '../../explore-container/explore-container.module';
 
-import { Tab3PageRoutingModule } from './part-routing.module';
+import { PartRoutingModule } from './part-routing.module';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     ExploreContainerComponentModule,
+    TranslateModule,
     RouterModule.forChild([{ path: '', component: PartPage }]),
-    Tab3PageRoutingModule,
+    PartRoutingModule,
   ],
   declarations: [PartPage]
 })

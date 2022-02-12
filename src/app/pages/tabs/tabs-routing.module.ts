@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../part/part.module').then(m => m.PartPageModule)
       },
       {
+        path: 'request',
+        loadChildren: () => import('../request/request.module').then(m => m.RequestPageModule)
+      },
+      {
         path: '',
         redirectTo: 'tabs/work-order',
         pathMatch: 'full'

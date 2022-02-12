@@ -1,0 +1,220 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title> Asset </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-label position="fixed">ID</ion-label>
+      <div item-content>
+        <span>{{asset.id}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Name</ion-label>
+      <div item-content>
+        <span>{{asset.name}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Make</ion-label>
+      <div item-content>
+        <span>{{asset.make}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Model</ion-label>
+      <div item-content>
+        <span>{{asset.model}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Asset Id</ion-label>
+      <div item-content>
+        <span>{{asset.assetId}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Bar Code</ion-label>
+      <div item-content>
+        <span>{{asset.barCode}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Serial Number</ion-label>
+      <div item-content>
+        <span>{{asset.serialNumber}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Area</ion-label>
+      <div item-content>
+        <span>{{asset.area}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Description</ion-label>
+      <div item-content>
+        <span>{{asset.description}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Additional Info</ion-label>
+      <div item-content>
+        <span>{{asset.additionalInfo}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Purchase Date</ion-label>
+      <div item-content>
+        <span>{{asset.purchaseDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Service Date</ion-label>
+      <div item-content>
+        <span>{{asset.serviceDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Purchase Price</ion-label>
+      <div item-content>
+        <span>{{asset.purchasePrice}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Warranty Expiration Date</ion-label>
+      <div item-content>
+        <span>{{asset.warrantyExpirationDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Residual Price</ion-label>
+      <div item-content>
+        <span>{{asset.residualPrice}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Useful Life</ion-label>
+      <div item-content>
+        <span>{{asset.usefulLife}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Depreciation Method</ion-label>
+      <div item-content>
+        <span>{{asset.depreciationMethod}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Custom Fields</ion-label>
+      <div item-content>
+        <span>{{asset.customFields}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Child</ion-label>
+      <div item-content>
+        <span>{{asset.isChild}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Functional</ion-label>
+      <div item-content>
+        <span>{{asset.isFunctional}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Is Active</ion-label>
+      <div item-content>
+        <span>{{asset.isActive}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Create Date</ion-label>
+      <div item-content>
+        <span>{{asset.createDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Update Date</ion-label>
+      <div item-content>
+        <span>{{asset.updateDate | date:'medium'}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Created By</ion-label>
+      <div item-content>
+        <span>{{asset.createdBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Updated By</ion-label>
+      <div item-content>
+        <span>{{asset.updatedBy}}</span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tenant</ion-label>
+      <div item-content *ngIf="asset.tenantId">
+        <a>{{asset.tenantId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Worker</ion-label>
+      <div item-content>
+        <span *ngFor="let worker of asset.workers; let last = last"> <a>{{worker.id}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Team</ion-label>
+      <div item-content>
+        <span *ngFor="let team of asset.teams; let last = last"> <a>{{team.name}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Vendor</ion-label>
+      <div item-content>
+        <span *ngFor="let vendor of asset.vendors; let last = last"> <a>{{vendor.name}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Customer</ion-label>
+      <div item-content>
+        <span *ngFor="let customer of asset.customers; let last = last"> <a>{{customer.name}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Part</ion-label>
+      <div item-content>
+        <span *ngFor="let part of asset.parts; let last = last"> <a>{{part.id}}</a>{{last ? '' : ', '}} </span>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Parent</ion-label>
+      <div item-content *ngIf="asset.parentId">
+        <a>{{asset.parentAssetId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Location</ion-label>
+      <div item-content *ngIf="asset.locationId">
+        <a>{{asset.locationId}}</a>
+      </div>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category</ion-label>
+      <div item-content *ngIf="asset.categoryId">
+        <a>{{asset.categoryName}}</a>
+      </div>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="open(asset)">{{ 'EDIT_BUTTON' | translate }}</ion-button>
+  <ion-button expand="block" color="danger" (click)="deleteModal(asset)">{{ 'DELETE_BUTTON' | translate }}</ion-button>
+</ion-content>
