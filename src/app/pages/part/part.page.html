@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="color: white;letter-spacing: 1px;font-family: 'semi-bold';">Parts</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,7 +11,7 @@
 
   <ion-list>
     <ion-item-sliding *ngFor="let part of parts; trackBy: trackId" #slidingItem>
-      <ion-item (click)="view(part)">
+      <ion-item lines="full" (click)="view(part)">
         <ion-label text-wrap>
           <p>{{part.id}}</p>
           <ion-text color="primary"><h2>{{part.name}}</h2></ion-text>

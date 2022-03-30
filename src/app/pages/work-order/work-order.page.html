@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="color: white;letter-spacing: 1px;font-family: 'semi-bold';">
       Work Orders
     </ion-title>
   </ion-toolbar>
@@ -13,7 +13,7 @@
 
   <ion-list>
     <ion-item-sliding *ngFor="let workOrder of workOrders; trackBy: trackId" #slidingItem>
-      <ion-item (click)="view(workOrder)">
+      <ion-item lines="full" (click)="view(workOrder)">
         <ion-label text-wrap>
           <p>{{workOrder.id}}</p>
           <ion-text color="primary"><h2>{{workOrder.title}}</h2></ion-text>

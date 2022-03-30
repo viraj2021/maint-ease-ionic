@@ -1,19 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="color: white;letter-spacing: 1px;font-family: 'semi-bold';">
       Asset
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
   <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
   <ion-list>
     <ion-item-sliding *ngFor="let asset of assets; trackBy: trackId" #slidingItem>
-      <ion-item (click)="view(asset)">
+      <ion-item lines="full" (click)="view(asset)">
         <ion-label text-wrap>
           <p>{{asset.id}}</p>
           <ion-text color="primary"><h2>{{asset.name}}</h2></ion-text>

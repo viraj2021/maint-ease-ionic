@@ -1,18 +1,18 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title> Requests </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title style="color: white;letter-spacing: 1px;font-family: 'semi-bold';"> Requests </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <!-- todo: add elasticsearch support -->
-<ion-content class="ion-padding">
+<ion-content>
   <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
   <ion-list>
     <ion-item-sliding *ngFor="let request of requests; trackBy: trackId" #slidingItem>
-      <ion-item (click)="view(request)">
+      <ion-item detail lines="full" (click)="view(request)">
         <ion-label text-wrap>
           <p>{{request.id}}</p>
           <ion-text color="primary"><h2>{{request.title}}</h2></ion-text>
