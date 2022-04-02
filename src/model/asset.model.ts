@@ -20,7 +20,7 @@ export const enum DepreciationMethod {
 
 export class Asset implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public make?: string,
     public model?: string,

@@ -19,7 +19,7 @@ export class LocationService {
     return this.http.put(`${this.resourceUrl}/${location.id}`, location, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<Location>> {
+  find(id: string): Observable<HttpResponse<Location>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class LocationService {
     return this.http.get<Location[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

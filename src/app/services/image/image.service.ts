@@ -19,7 +19,7 @@ export class ImageService {
     return this.http.put(`${this.resourceUrl}/${image.id}`, image, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<Image>> {
+  find(id: string): Observable<HttpResponse<Image>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class ImageService {
     return this.http.get<Image[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

@@ -5,7 +5,7 @@ import { Part } from './part.model';
 
 export class Vendor implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public vendorId?: string,
     public phone?: string,

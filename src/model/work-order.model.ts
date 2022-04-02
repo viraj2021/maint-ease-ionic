@@ -1,6 +1,6 @@
 import { BaseEntity } from 'src/model/base-entity';
 import { Note } from './note.model';
-import { Cost } from './cost.model';
+import { Allocation } from './cost.model';
 import { Bookmark } from './bookmark.model';
 import { Image } from './image.model';
 import { File } from './file.model';
@@ -10,6 +10,8 @@ import { Vendor } from './vendor.model';
 import { Customer } from './customer.model';
 import { Asset } from './asset.model';
 import { Part } from './part.model';
+import {ChecklistItem} from "./checklist-item.model";
+import {RepeatDefinition} from "./repeat-definition.model";
 
 export const enum Priority {
   'CRITICAL',
@@ -32,7 +34,7 @@ export const enum Status {
 
 export class WorkOrder implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public title?: string,
     public wonumber?: string,
     public description?: string,
@@ -49,6 +51,7 @@ export class WorkOrder implements BaseEntity {
     public shareWithEmail?: string,
     public isArchived?: boolean,
     public customFields?: any,
+    public checklist?: any,
     public isActive?: boolean,
     public workInstruction?: string,
     public estimatedLabor?: number,
@@ -68,8 +71,12 @@ export class WorkOrder implements BaseEntity {
     public createdBy?: string,
     public updatedBy?: string,
     public repeatDefinitionId?: number,
+    public repeatDefinition?: RepeatDefinition | null,
     public notes?: Note[],
-    public costs?: Cost[],
+    public allocations?: Allocation[],
+    public checklistName?: string,
+    public checklistItems?: ChecklistItem[],
+    public checklistValues?: Map<string, string>,
     public bookmarks?: Bookmark[],
     public images?: Image[],
     public files?: File[],
@@ -85,7 +92,8 @@ export class WorkOrder implements BaseEntity {
     public teamName?: string,
     public teamId?: number,
     public categoryName?: string,
-    public categoryId?: number
+    public categoryId?: number,
+    public fieldMetaData?: any
   ) {
     this.isRepeating = false;
     this.isGenerated = false;

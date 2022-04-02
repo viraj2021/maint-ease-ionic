@@ -3,7 +3,7 @@ import { File } from './file.model';
 
 export class RestockEvent implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public addedQuantity?: number,
     public newQuantity?: number,
     public description?: string,

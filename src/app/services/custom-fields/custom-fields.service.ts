@@ -19,7 +19,7 @@ export class CustomFieldsService {
     return this.http.put(`${this.resourceUrl}/${customFields.id}`, customFields, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<CustomFields>> {
+  find(id: string): Observable<HttpResponse<CustomFields>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class CustomFieldsService {
     return this.http.get<CustomFields[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

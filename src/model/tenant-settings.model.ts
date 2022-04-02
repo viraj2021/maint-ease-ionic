@@ -26,7 +26,7 @@ export const enum ContextType {
 
 export class TenantSettings implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public type?: SettingType,
     public contextType?: ContextType,
     public key?: string,

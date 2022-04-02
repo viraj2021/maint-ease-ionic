@@ -10,7 +10,7 @@ export const enum BookmarkColor {
 
 export class Bookmark implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public color?: BookmarkColor,
     public createDate?: any,
     public tenantId?: number,

@@ -10,8 +10,8 @@ import { LoginService } from '../../services/login/login.service';
 })
 export class LoginPage implements OnInit {
   // The account fields for the login form.
-  account: { username: string; password: string; rememberMe: boolean } = {
-    username: '',
+  account: { useremail: string; password: string; rememberMe: boolean } = {
+    useremail: '',
     password: '',
     rememberMe: false,
   };

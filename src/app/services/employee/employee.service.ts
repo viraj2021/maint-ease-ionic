@@ -19,7 +19,7 @@ export class EmployeeService {
     return this.http.put(`${this.resourceUrl}/${employee.id}`, employee, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<Employee>> {
+  find(id: string): Observable<HttpResponse<Employee>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class EmployeeService {
     return this.http.get<Employee[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

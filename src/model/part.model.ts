@@ -15,7 +15,7 @@ import { Asset } from './asset.model';
 
 export class Part implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public partId?: string,
     public barCode?: string,
@@ -55,7 +55,8 @@ export class Part implements BaseEntity {
     public categoryName?: string,
     public categoryId?: number,
     public workorders?: WorkOrder[],
-    public assets?: Asset[]
+    public assets?: Asset[],
+    public fieldMetaData?: any
   ) {
     this.isChild = false;
     this.isActive = false;

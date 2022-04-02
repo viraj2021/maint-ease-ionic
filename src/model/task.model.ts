@@ -20,7 +20,7 @@ export const enum TaskStatus {
 
 export class Task implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public title?: string,
     public taskId?: string,
     public description?: string,

@@ -13,7 +13,7 @@ export const enum ScheduleType {
 
 export class Reading implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public readingId?: string,
     public type?: ScheduleType,

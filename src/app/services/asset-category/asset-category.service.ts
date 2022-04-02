@@ -19,7 +19,7 @@ export class AssetCategoryService {
     return this.http.put(`${this.resourceUrl}/${assetCategory.id}`, assetCategory, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<AssetCategory>> {
+  find(id: string): Observable<HttpResponse<AssetCategory>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class AssetCategoryService {
     return this.http.get<AssetCategory[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

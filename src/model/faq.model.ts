@@ -3,7 +3,7 @@ import { Bookmark } from './bookmark.model';
 
 export class Faq implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public problem?: string,
     public solution?: string,
     public additionalInfo?: string,

@@ -17,7 +17,7 @@ export const enum EmployeeType {
 
 export class Employee implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public employeeId?: string,
     public employeeNumber?: string,
     public jobTitle?: string,

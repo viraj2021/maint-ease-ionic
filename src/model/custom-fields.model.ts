@@ -16,7 +16,7 @@ export const enum ContextType {
 
 export class CustomFields implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public contextType?: ContextType,
     public metaData?: any,
     public isActive?: boolean,

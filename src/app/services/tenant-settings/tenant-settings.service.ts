@@ -19,7 +19,7 @@ export class TenantSettingsService {
     return this.http.put(`${this.resourceUrl}/${tenantSettings.id}`, tenantSettings, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<TenantSettings>> {
+  find(id: string): Observable<HttpResponse<TenantSettings>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class TenantSettingsService {
     return this.http.get<TenantSettings[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

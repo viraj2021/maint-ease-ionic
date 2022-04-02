@@ -19,7 +19,7 @@ export class VendorTypeService {
     return this.http.put(`${this.resourceUrl}/${vendorType.id}`, vendorType, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<VendorType>> {
+  find(id: string): Observable<HttpResponse<VendorType>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class VendorTypeService {
     return this.http.get<VendorType[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

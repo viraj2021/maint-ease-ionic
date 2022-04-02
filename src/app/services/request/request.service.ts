@@ -19,7 +19,7 @@ export class RequestService {
     return this.http.put(`${this.resourceUrl}/${request.id}`, request, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<Request>> {
+  find(id: string): Observable<HttpResponse<Request>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class RequestService {
     return this.http.get<Request[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

@@ -2,7 +2,7 @@ import { BaseEntity } from 'src/model/base-entity';
 
 export class AssetDowntime implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public startDate?: any,
     public endDate?: any,
     public isPlanned?: boolean,

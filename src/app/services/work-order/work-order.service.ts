@@ -19,7 +19,7 @@ export class WorkOrderService {
     return this.http.put(`${this.resourceUrl}/${workOrder.id}`, workOrder, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<WorkOrder>> {
+  find(id: string): Observable<HttpResponse<WorkOrder>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class WorkOrderService {
     return this.http.get<WorkOrder[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

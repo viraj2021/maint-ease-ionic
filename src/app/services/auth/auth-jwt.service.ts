@@ -17,7 +17,7 @@ export class AuthServerProvider {
 
   login(credentials): Observable<any> {
     const data = {
-      username: credentials.username,
+      useremail: credentials.useremail,
       password: credentials.password,
       rememberMe: credentials.rememberMe,
     };

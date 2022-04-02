@@ -2,7 +2,7 @@ import { BaseEntity } from 'src/model/base-entity';
 
 export class Note implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public title?: string,
     public description?: string,
     public isSystemGenerated?: boolean,

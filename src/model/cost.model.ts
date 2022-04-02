@@ -13,9 +13,9 @@ export const enum CostStatus {
   'REJECTED',
 }
 
-export class Cost implements BaseEntity {
+export class Allocation implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public type?: CostType,
     public quantity?: number,

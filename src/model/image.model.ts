@@ -2,7 +2,7 @@ import { BaseEntity } from 'src/model/base-entity';
 
 export class Image implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public description?: string,
     public extension?: string,

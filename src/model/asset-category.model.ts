@@ -19,7 +19,7 @@ export const enum Color {
 
 export class AssetCategory implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public name?: string,
     public isActive?: boolean,
     public color?: Color,

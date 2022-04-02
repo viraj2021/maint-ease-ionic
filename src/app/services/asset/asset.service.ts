@@ -19,7 +19,7 @@ export class AssetService {
     return this.http.put(`${this.resourceUrl}/${asset.id}`, asset, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<Asset>> {
+  find(id: string): Observable<HttpResponse<Asset>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class AssetService {
     return this.http.get<Asset[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

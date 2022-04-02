@@ -12,7 +12,7 @@ export const enum SettingType {
 
 export class UserSettings implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public type?: SettingType,
     public key?: string,
     public value?: any,

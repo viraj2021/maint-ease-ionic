@@ -19,7 +19,7 @@ export class TeamService {
     return this.http.put(`${this.resourceUrl}/${team.id}`, team, { observe: 'response' });
   }
 
-  find(id: number): Observable<HttpResponse<Team>> {
+  find(id: string): Observable<HttpResponse<Team>> {
     return this.http.get(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
@@ -28,7 +28,7 @@ export class TeamService {
     return this.http.get<Team[]>(this.resourceUrl, { params: options, observe: 'response' });
   }
 
-  delete(id: number): Observable<HttpResponse<any>> {
+  delete(id: string): Observable<HttpResponse<any>> {
     return this.http.delete<any>(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 }

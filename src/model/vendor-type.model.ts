@@ -18,7 +18,7 @@ export const enum Color {
 
 export class VendorType implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
     public type?: string,
     public isActive?: boolean,
     public color?: Color,

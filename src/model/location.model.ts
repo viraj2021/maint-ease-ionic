@@ -7,7 +7,8 @@ import { Part } from './part.model';
 
 export class Location implements BaseEntity {
   constructor(
-    public id?: number,
+    public id?: string,
+    public name?: string,
     public address?: string,
     public isChild?: boolean,
     public isActive?: boolean,
