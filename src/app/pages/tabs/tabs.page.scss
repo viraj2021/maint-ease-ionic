@@ -1,14 +1,9 @@
 
 ion-tabs {
-  ion-fab {
-    margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
-    ion-fab-button {
-      --box-shadow: none;
-    }
-  }
   ion-tab-bar {
-    --border: 0;
+
     --background: var(--ion-color-light);
+    box-shadow: 0 -1px 35px 10px rgba(0, 0, 0, 0.2);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -25,7 +20,53 @@ ion-tabs {
       position: absolute;
     }
     ion-tab-button {
-      --background: var(--ion-color-light);
+      position: relative;
+      transition: all .4s;
+
+      ion-label {
+        color: var(--text-dark);
+        padding-top: 6px;
+        font-weight: 600;
+        letter-spacing: 0;
+        font-size: .75rem;
+
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        background: var(--primary);
+        border-radius: 50px;
+        transition: all .4s;
+
+      }
+
+
+      img {
+        width: 20px !important;
+        margin-top: 5px;
+      }
+
+      &.tab-selected {
+        ion-label {
+          color: var(--primary);
+        }
+
+        ion-icon {
+          color: var(--primary);
+        }
+
+        &::before {
+          width: 40px;
+          height: 3px;
+          transition: all .4s;
+        }
+
+      }
     }
   }
 }

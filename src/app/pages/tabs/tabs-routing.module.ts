@@ -24,6 +24,16 @@ const routes: Routes = [
         loadChildren: () => import('../request/request.module').then(m => m.RequestPageModule)
       },
       {
+        path: 'orders',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../my-orders/my-orders.module').then(m => m.MyOrdersPageModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: 'work-order',
         pathMatch: 'full'
