@@ -16,6 +16,7 @@ export class AssetPage {
   assets: Asset[];
 
   // todo: add pagination
+  showLoader = false;
 
   constructor(
     private dataUtils: JhiDataUtils,
@@ -32,6 +33,9 @@ export class AssetPage {
   }
 
   async loadAll(refresher?) {
+    if(!refresher) {
+      this.showLoader = true;
+    }
     this.assetService
       .query()
       .pipe(
@@ -46,9 +50,11 @@ export class AssetPage {
               refresher.target.complete();
             }, 750);
           }
+          this.showLoader = false;
         },
         async (error) => {
           console.error(error);
+          this.showLoader = false;
           const toast = await this.toastCtrl.create({ message: 'Failed to load data', duration: 2000, position: 'middle' });
           await toast.present();
         }

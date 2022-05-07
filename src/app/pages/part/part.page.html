@@ -4,15 +4,63 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="bg-color">
+  <div class="tab-container">
   <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
+  <ion-list lines="none">
     <ion-item-sliding *ngFor="let part of parts; trackBy: trackId" #slidingItem>
-      <ion-item lines="full" (click)="view(part)">
-        <ion-label text-wrap>
+      <ion-item class="animate__animated animate__fadeInUp" (click)="view(part)">
+        <div class="item_inner">
+          <ion-row class="ion-justify-content-start">
+            <ion-col size="12">
+              <h2 [style.margin]="0">{{part.name}}</h2>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-between">
+            <ion-col size="6">
+              <div class="label">
+                <span class="id-label">{{part.partId}}</span>
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="label">
+                <p class="">Quantity</p>
+                  <span class="">{{part.quantity }}</span>
+              </div>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-between">
+            <ion-col size="6">
+              <div class="label">
+                <p class="">Make</p>
+                <div class="">
+                  <h2 class="">{{part.make }}</h2>
+                </div>
+              </div>
+            </ion-col>
+            <ion-col size="6">
+              <div class="label">
+                <p class="">Model</p>
+                <div class="">
+                  <h2 class="">{{part.model }}</h2>
+                </div>
+              </div>
+            </ion-col>
+          </ion-row>
+          <div class="details-row d-flex">
+            <div class="icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="details-text">
+              <h3>{{part.locationName || '-'}}</h3>
+            </div>
+
+          </div>
+        </div>
+       <!-- <ion-label text-wrap>
           <p>{{part.id}}</p>
           <ion-text color="primary"><h2>{{part.name}}</h2></ion-text>
           <p>{{part.partId}}</p>
@@ -34,7 +82,7 @@
           <p>{{part.updateDate | date:'medium'}}</p>
           <p>{{part.createdBy}}</p>
           <p>{{part.updatedBy}}</p>
-        </ion-label>
+        </ion-label>-->
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option color="primary" (click)="edit(slidingItem, part)"> {{ 'EDIT_BUTTON' | translate }} </ion-item-option>
@@ -42,13 +90,15 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-item *ngIf="!parts?.length">
+  <ion-spinner name="lines" class="page-loader" *ngIf="!parts?.length && showLoader"></ion-spinner>
+  </div>
+  <!--<ion-item *ngIf="!parts?.length">
     <ion-label> No Parts found. </ion-label>
-  </ion-item>
+  </ion-item>-->
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <!--<ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="new()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab>-->
 </ion-content>

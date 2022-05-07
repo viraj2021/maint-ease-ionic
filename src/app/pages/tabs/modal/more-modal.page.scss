@@ -1,0 +1,36 @@
+.main-content-div{
+    width: 100%;
+    padding: 10px;
+
+    .inner-col{
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+      .menu-icon {
+        background: #DFE7F5;
+        height: 46px;
+        width: 46px;
+        min-width: 46px;
+        border-radius: 100%;
+        position: relative;
+
+        ion-icon {
+          color: var(--primary);;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          font-size: 20px;
+        }
+      }
+
+      ion-label {
+            font-size: 13px;
+            display: block;
+            margin-top: 7px;
+        }
+    }
+}

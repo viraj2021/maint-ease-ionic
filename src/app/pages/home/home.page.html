@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="header_bg bg-transparent">
   <ion-toolbar>
     <ion-title> {{ 'WELCOME_TITLE' | translate }}, {{account?.firstName}} </ion-title>
     <ion-buttons slot="end">
@@ -8,10 +8,160 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
+  <ion-list lines="none">
+    <ion-item class="search animate__animated animate__fadeInUp" (click)="search()">
+      <div class="item_inner d-flex">
+        <h2>{{'quick' | translate}}<span class="text-theme">{{'pay' | translate}}</span></h2>
+        <img src="assets/imgs/ic_search.png" class="end">
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <p>{{ 'WELCOME_INTRO' | translate }}</p>
+<ion-content fullscreen class="bg_color">
+ <!-- <p>{{ 'WELCOME_INTRO' | translate }}</p>
+-->
+  <ion-list lines="none">
+    <ion-card class="animate__animated animate__fadeInUp">
+      <div class="card_bg center_img">
+        <img src="assets/imgs/card_bg1.png" class="crop_img">
+      </div>
+      <h2>Work Orders</h2>
+      <ion-item>
+        <ion-row class="ion-text-center" size="12">
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+            <img src="assets/imgs/ic_recharge.png">
+            <h6>{{'recharge' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3">
+            <div class="grp">
+            <img src="assets/imgs/ic_electricity.png">
+            <h6>{{'electricity' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+            <img src="assets/imgs/ic_train.png">
+            <h6>{{'train_ticket' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+            <img src="assets/imgs/ic_flights.png">
+            <h6>{{'flights' | translate}}</h6>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-card>
 
-  <span class="hipster"></span>
+    <ion-card class="animate__animated animate__fadeInUp">
+      <div class="card_bg center_img">
+        <img src="assets/imgs/card_bg2.png" class="crop_img">
+      </div>
+      <h2>Assets</h2>
+      <ion-item>
+        <ion-row class="ion-text-center" size="12">
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_recharge.png">
+              <h6>{{'recharge' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3">
+            <div class="grp">
+              <img src="assets/imgs/ic_electricity.png">
+              <h6>{{'electricity' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_train.png">
+              <h6>{{'train_ticket' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_flights.png">
+              <h6>{{'flights' | translate}}</h6>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-card>
+
+
+    <ion-card class="animate__animated animate__fadeInUp">
+      <div class="card_bg center_img">
+        <img src="assets/imgs/card_bg2.png" class="crop_img">
+      </div>
+      <h2>Readings</h2>
+      <ion-item>
+        <ion-row class="ion-text-center" size="12">
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_recharge.png">
+              <h6>{{'recharge' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3">
+            <div class="grp">
+              <img src="assets/imgs/ic_electricity.png">
+              <h6>{{'electricity' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_train.png">
+              <h6>{{'train_ticket' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_flights.png">
+              <h6>{{'flights' | translate}}</h6>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-card>
+
+
+    <ion-card class="animate__animated animate__fadeInUp">
+      <div class="card_bg center_img">
+        <img src="assets/imgs/card_bg1.png" class="crop_img">
+      </div>
+      <h2>Parts</h2>
+      <ion-item>
+        <ion-row class="ion-text-center" size="12">
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_recharge.png">
+              <h6>{{'recharge' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3">
+            <div class="grp">
+              <img src="assets/imgs/ic_electricity.png">
+              <h6>{{'electricity' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_train.png">
+              <h6>{{'train_ticket' | translate}}</h6>
+            </div>
+          </ion-col>
+          <ion-col class="animate__animated animate__zoomIn" size="3" >
+            <div class="grp">
+              <img src="assets/imgs/ic_flights.png">
+              <h6>{{'flights' | translate}}</h6>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-card>
+  </ion-list>
 </ion-content>

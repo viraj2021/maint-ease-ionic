@@ -5,29 +5,66 @@
 </ion-header>
 
 <!-- todo: add elasticsearch support -->
-<ion-content>
+<ion-content class="bg-color">
   <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-list>
+  <ion-list lines="none">
     <ion-item-sliding *ngFor="let request of requests; trackBy: trackId" #slidingItem>
-      <ion-item detail lines="full" (click)="view(request)">
-        <ion-label text-wrap>
+      <ion-item class="animate__animated animate__fadeInUp" (click)="view(request)">
+        <div class="item_inner">
+          <ion-row class="ion-justify-content-start">
+            <ion-col size="12">
+              <h2 [style.margin]="0">{{request.title}}</h2>
+            </ion-col>
+          </ion-row>
+          <ion-row class="ion-justify-content-between">
+            <ion-col size="4">
+              <div class="label">
+                <span class="wo-label">{{request.requestId}}</span>
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div *ngIf="request.status" class="badge-div"><ion-label class="text">{{request.status}}</ion-label></div>
+            </ion-col>
+            <ion-col size="4">
+              <div *ngIf="request.priority" class="badge-div"><ion-label class="text">{{request.priority}}</ion-label></div>
+            </ion-col>
+          </ion-row>
+          <div class="details-row d-flex">
+            <div class="icon">
+              <ion-icon name="grid-outline"></ion-icon>
+            </div>
+            <div class="details-text">
+              <h3>{{request.assetName || '-'}}</h3>
+            </div>
+          </div>
+          <div class="details-row d-flex">
+            <div class="icon">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+            <div class="details-text">
+              <h3>{{request.locationName || '-'}}</h3>
+            </div>
+
+          </div>
+        </div>
+        <!--<ion-label text-wrap>
           <p>{{request.id}}</p>
           <ion-text color="primary"><h2>{{request.title}}</h2></ion-text>
           <p>{{request.requestId}}</p>
           <p>{{request.description}}</p>
-          <!-- todo: special handling for translating enum - {{'Priority.' + request.priority}}" -->
+          &lt;!&ndash; todo: special handling for translating enum - {{'Priority.' + request.priority}}" &ndash;&gt;
           <p>{{request.priority}}</p>
           <p>{{request.isActive}}</p>
           <p>{{request.additionalInfo}}</p>
-          <p>{{request.approverRemark}}</p>
+          <p>{{request.approverRemark}}</p>workOrder
           <p>{{request.createDate | date:'medium'}}</p>
           <p>{{request.updateDate | date:'medium'}}</p>
           <p>{{request.createdBy}}</p>
           <p>{{request.updatedBy}}</p>
-        </ion-label>
+        </ion-label>-->
       </ion-item>
       <ion-item-options side="end">
         <ion-item-option color="primary" (click)="edit(slidingItem, request)"> {{ 'EDIT_BUTTON' | translate }} </ion-item-option>
@@ -35,13 +72,15 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-  <ion-item *ngIf="!requests?.length">
+  <ion-spinner name="lines" class="page-loader" *ngIf="!requests?.length && showLoader"></ion-spinner>
+
+ <!-- <ion-item *ngIf="!requests?.length">
     <ion-label> No Requests found. </ion-label>
   </ion-item>
-
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+-->
+  <!--<ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="new()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>
-  </ion-fab>
+  </ion-fab>-->
 </ion-content>

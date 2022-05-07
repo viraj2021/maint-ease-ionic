@@ -38,9 +38,11 @@
   --green_color: #54cb1f;
   --red_color: #f83232;
   --theme-gradient: linear-gradient(104deg, #256a93 0%, #2ca3ea 100%);
+
+ //  --theme-gradient: linear-gradient(to bottom, var(--primary), #207bb0);
 }
 
-.bg_color {
+.bg-color {
   --background: var(--bg-color);
 }
 
@@ -544,12 +546,12 @@ ion-datetime {
     }
   }
 }
-
+/*
 ion-modal {
   ion-content {
     --background: var(--transparent);
   }
-}
+}*/
 
 ion-app[dir="rtl"] {
   .d-flex .end {
@@ -663,4 +665,81 @@ ion-app[dir="rtl"] {
   ion-header ion-toolbar ion-buttons ion-back-button {
     transform: rotate(181deg)!important;
   }
+}
+
+
+
+@for $i from 0 through 10 {
+  .m-l-#{$i * 5} {
+    margin-left: #{$i * 5}px;
+  }
+
+  .m-t-#{$i * 5} {
+    margin-top: #{$i * 5}px;
+  }
+
+  .m-r-#{$i * 5} {
+    margin-right: #{$i * 5}px;
+  }
+
+  .m-b-#{$i * 5} {
+    margin-bottom: #{$i * 5}px;
+  }
+}
+
+.margin-0 {
+  margin: 0 !important;
+}
+
+@for $i from 0 through 10 {
+  .p-l-#{$i * 5} {
+    padding-left: #{$i * 5}px;
+  }
+
+  .p-t-#{$i * 5} {
+    padding-top: #{$i * 5}px;
+  }
+
+  .p-r-#{$i * 5} {
+    padding-right: #{$i * 5}px;
+  }
+
+  .p-b-#{$i * 5} {
+    padding-bottom: #{$i * 5}px;
+  }
+}
+
+.padding-0 {
+  padding: 0 !important;
+}
+
+@for $i from 8 through 20 {
+  .font-#{$i + 1} {
+    font-size: #{$i + 1}px;
+  }
+}
+
+
+
+.page-loader{
+  top:50%;
+  left:50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+}
+
+
+
+ion-modal.custom_modal {
+  &::part(content){
+    width: 100% !important;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+  }
+  &.bottom {
+    align-items: flex-end !important;
+  }
+  ion-content {--overflow: hidden}
+  --height: 200px;
+  align-items: flex-end;
 }

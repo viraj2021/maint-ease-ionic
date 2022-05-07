@@ -15,6 +15,8 @@ export class WorkOrderPage {
   workOrders: WorkOrder[];
 
   // todo: add pagination
+  showLoader = false;
+  private itemsPerPage = 10;
 
   constructor(
     private dataUtils: JhiDataUtils,
@@ -31,8 +33,12 @@ export class WorkOrderPage {
   }
 
   async loadAll(refresher?) {
+    if(!refresher) {
+      this.showLoader = true;
+    }
     this.workOrderService
-      .query()
+      .query({page: 0,
+        size: this.itemsPerPage,})
       .pipe(
         filter((res: HttpResponse<WorkOrder[]>) => res.ok),
         map((res: HttpResponse<WorkOrder[]>) => res.body)
@@ -45,9 +51,11 @@ export class WorkOrderPage {
               refresher.target.complete();
             }, 750);
           }
+          this.showLoader = false;
         },
         async (error) => {
           console.error(error);
+          this.showLoader = false;
           const toast = await this.toastCtrl.create({ message: 'Failed to load data', duration: 2000, position: 'middle' });
           await toast.present();
         }

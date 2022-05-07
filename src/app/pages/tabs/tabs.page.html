@@ -1,6 +1,10 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom" class="ion-no-border">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
     <ion-tab-button tab="work-order">
       <ion-icon name="albums-outline"></ion-icon>
       <ion-label>Work Orders</ion-label>
@@ -16,16 +20,20 @@
       <ion-label>Parts</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button tab="request">
+    <!--<ion-tab-button tab="request">
       <ion-icon name="reader-outline"></ion-icon>
       <ion-label>Requests</ion-label>
-    </ion-tab-button>
+    </ion-tab-button>-->
 
 
-    <ion-tab-button tab="orders">
+    <!--<ion-tab-button tab="orders">
       <ion-icon name="reader-outline"></ion-icon>
       <ion-label>Orders</ion-label>
-    </ion-tab-button>
+    </ion-tab-button>-->
 
+    <ion-tab-button (click)="showModalSelector()">
+      <ion-icon name="ellipsis-horizontal-sharp"></ion-icon>
+      <ion-label>More</ion-label>
+    </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

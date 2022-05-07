@@ -15,6 +15,7 @@ export class PartPage {
   parts: Part[];
 
   // todo: add pagination
+  showLoader = false;
 
   constructor(
     private dataUtils: JhiDataUtils,
@@ -31,6 +32,9 @@ export class PartPage {
   }
 
   async loadAll(refresher?) {
+    if(!refresher) {
+      this.showLoader = true;
+    }
     this.partService
       .query()
       .pipe(
@@ -45,9 +49,11 @@ export class PartPage {
               refresher.target.complete();
             }, 750);
           }
+          this.showLoader = false;
         },
         async (error) => {
           console.error(error);
+          this.showLoader = false;
           const toast = await this.toastCtrl.create({ message: 'Failed to load data', duration: 2000, position: 'middle' });
           await toast.present();
         }

@@ -6,8 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="bg_color"> <!--class="&#45;&#45;ion-padding"-->
-  <div class="tab_container">
+<ion-content class="bg-color"> <!--class="&#45;&#45;ion-padding"-->
+  <div class="tab-container">
     <ion-refresher [disabled]="plt.is('desktop')" slot="fixed" (ionRefresh)="loadAll($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -24,20 +24,38 @@
             <ion-row class="ion-justify-content-between">
               <ion-col size="4">
                 <div class="label">
-                  <p>WO #</p>
                   <span class="wo-label">{{workOrder.wonumber}}</span>
                 </div>
               </ion-col>
               <ion-col size="4">
-                <div class="label">
-                  <p>Scheduled</p>
-                  <h2>{{workOrder.scheduledDate | date:'MM/dd/yyyy'}}</h2>
-                </div>
+                <div *ngIf="workOrder.status" class="badge-div"><ion-label class="text">{{workOrder.status}}</ion-label></div>
               </ion-col>
               <ion-col size="4">
+                <div *ngIf="workOrder.priority" class="badge-div"><ion-label class="text">{{workOrder.priority}}</ion-label></div>
+              </ion-col>
+            </ion-row>
+            <ion-row class="ion-justify-content-between">
+              <ion-col size="5">
                 <div class="label">
-                  <p>Due On</p>
-                  <h2>{{workOrder.dueDate | date:'MM/dd/yyyy'}}</h2>
+                  <p class="date-label">Scheduled</p>
+                  <div class="date-content">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <h2 class="date-text">{{workOrder.scheduledDate | date:'MM/dd/yyyy'}}</h2>
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col size="5">
+                <div class="label">
+                  <p class="date-label">Due</p>
+                  <div class="date-content">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <h2 class="date-text">{{workOrder.dueDate | date:'MM/dd/yyyy'}}</h2>
+                  </div>
+                </div>
+              </ion-col>
+              <ion-col size="2">
+                <div class="repeat-icon">
+                  <ion-icon name="repeat-outline"></ion-icon>
                 </div>
               </ion-col>
             </ion-row>
@@ -48,7 +66,6 @@
               <div class="details-text">
                 <h3>{{workOrder.assets?.length > 0 ? (workOrder.assets[0].name || '-' ): '-'}}</h3>
               </div>
-              <div class="end"><div *ngIf="workOrder.status" class="badge_div"><ion-label class="text">{{workOrder.status}}</ion-label></div></div>
             </div>
             <div class="details-row d-flex">
               <div class="icon">
@@ -57,7 +74,16 @@
               <div class="details-text">
                 <h3>{{workOrder.locationName || '-'}}</h3>
               </div>
-              <div class="end"><div *ngIf="workOrder.priority" class="badge_div"><ion-label class="text">{{workOrder.priority}}</ion-label></div></div>
+
+            </div>
+            <div class="details-row d-flex">
+              <div class="icon">
+                <ion-icon name="person-outline"></ion-icon>
+              </div>
+              <div class="details-text">
+                <h3>{{workOrder.assigneeId ? (workOrder.assigneeFirstName + ' ' + workOrder.assigneeLastName ): '-'}}</h3>
+              </div>
+              <div class="end"><div *ngIf="workOrder.status" class="badge-div"><ion-label class="text">{{workOrder.status}}</ion-label></div></div>
             </div>
           </div>
           <!--<ion-label text-wrap>
@@ -83,9 +109,12 @@
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
-    <ion-item *ngIf="!workOrders?.length">
+
+    <ion-spinner name="lines" class="page-loader" *ngIf="!workOrders?.length && showLoader"></ion-spinner>
+
+    <!--<ion-item *ngIf="!workOrders?.length && showLoader">
       <ion-label> No Work Orders found. </ion-label>
-    </ion-item>
+    </ion-item>-->
   </div>
   <!--<ion-fab vertical="bottom" horizontal="end" slot="fixed">
     <ion-fab-button (click)="new()">

@@ -1,7 +1,60 @@
-<ion-header>
+<ion-header class="header_bg bg-transparent">
   <ion-toolbar>
-    <ion-title> {{ 'TAB3_TITLE' | translate }} </ion-title>
+    <ion-title>{{'account' | translate}}</ion-title>
   </ion-toolbar>
+  <div class="profile_box d-flex">
+    <div class="profile_img">
+      <img src="assets/imgs/profile_pic.png">
+    </div>
+    <div class="name_box">
+      <h2 class="animate__animated animate__fadeInUp">Sam Smith</h2>
+      <h3 class="animate__animated animate__fadeInUp">{{'view_profile' | translate}}</h3>
+    </div>
+  </div>
 </ion-header>
+<ion-content fullscreen>
+  <div class="form">
+    <ion-list lines="none">
+      <ion-row class="animate__animated animate__fadeInUp">
+        <ion-col size="6">
+          <ion-item lines="none">
+            <ion-label position="floating">{{'frist_name' | translate}}</ion-label>
+            <ion-input type="text" value="Sam"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item lines="none">
+            <ion-label position="floating">{{'last_name' | translate}}</ion-label>
+            <ion-input type="text" value="Smith"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-item class="animate__animated animate__fadeInUp" lines="none">
+        <ion-label position="floating">{{'email_address' | translate}}</ion-label>
+        <ion-input type="email" value="samanthasmith@mail.com"></ion-input>
+        <img src="assets/imgs/ic_verified.png" slot="end" class="img_icon">
+      </ion-item>
+      <ion-item class="animate__animated animate__fadeInUp" lines="none">
+        <ion-label position="floating">{{'phone_number' | translate}}</ion-label>
+        <ion-input type="text" value="+1 987 654 3210"></ion-input>
+        <img src="assets/imgs/ic_verified.png" slot="end" class="img_icon">
+      </ion-item>
 
-<ion-content></ion-content>
+      <ion-row class="animate__animated animate__fadeInUp">
+        <ion-col size="6">
+          <ion-item lines="none">
+            <ion-label position="floating">{{'gender' | translate}}</ion-label>
+            <ion-input type="text" value="Male"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item lines="none">
+            <ion-label position="floating">{{'date_of_birht' | translate}}</ion-label>
+            <ion-input type="text" value="23rd Dec, 1990"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,141 @@
+ion-header ion-toolbar ion-title {
+  font-size: 1.5rem !important;
+
+  .icon_box {
+    position: relative;
+    padding: 0 7px;
+    min-width: 55px;
+    padding-top: 5px;
+
+    img {
+      margin: 0;
+      width: 20px;
+    }
+
+
+    ion-badge {
+      position: absolute;
+      top: 2px;
+      right: 4px;
+      border-radius: 50%;
+      background: var(--red_color);
+      padding: 0;
+      width: 14px;
+      font-size: .55rem;
+      font-weight: 400;
+      height: 14px;
+      line-height: 14px;
+
+    }
+  }
+}
+
+
+ion-list {
+  margin: 0;
+  margin-top: 10px;
+  background: none;
+  padding: 0;
+
+  ion-item {
+    padding: 15px 18px 15px 18px;
+    margin: 0 auto;
+    margin-bottom: 9px;
+    border-radius: 8.5px;
+    width: calc(100% - 14px);
+    box-shadow: 0 3px 4px -2px rgba(0, 0, 0, 0.2);
+    --background: var(--transparent);
+    --inner-padding-end: 0px;
+    --inner-min-height: unset !important;
+    --padding-start: 0;
+    --min-height: unset;
+    background: var(--white);
+
+    .item_inner {
+      width: 100%;
+      .label {
+        width: 100%;
+
+        h2 {
+          font-size: 1rem;
+          font-weight: 500;
+          padding-bottom: 5px;
+          margin: 0;
+
+          ion-icon {
+            font-size: 1.4rem;
+            color: var(--green_color);
+            display: none;
+            position: relative;
+            top: -5px;
+          }
+        }
+
+        .id-label {
+          color: var(--text-black);
+          font-size: .95rem;
+          font-weight: 500;
+        }
+
+        p {
+          font-size: .8rem;
+          color: var(--text-light);
+          letter-spacing: 0.5px;
+          margin: 0;
+
+        }
+      }
+
+      .details-row {
+        padding-bottom: 5px;
+
+        .icon {
+          font-size: 1.2rem;
+          padding: 2px 7px;
+        }
+
+      }
+
+      .badge-div {
+        background: var(--ion-color-primary);
+        border-radius: 5px;
+        width: 100px;
+        padding: 4px 0;
+        .text {
+          font-size: .8rem;
+          font-weight: 600;
+          color: white;
+          text-align: center;
+        }
+      }
+
+      h2 {
+        font-size: 1rem;
+        font-weight: 600;
+        padding-bottom: 2px;
+        color: var(--primary);
+        margin: 0;
+
+        span {
+          color: var(--text-black);
+          font-size: .95rem;
+          font-weight: 600;
+        }
+      }
+
+      h3 {
+        font-size: 1rem;
+        font-weight: 500;
+        padding-bottom: 5px;
+        margin: 0;
+      }
+
+      p {
+        font-size: .8rem;
+        color: var(--text-light);
+        font-weight: 400;
+        margin: 0;
+      }
+    }
+  }
+}

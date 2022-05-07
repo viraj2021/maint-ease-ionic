@@ -1,5 +1,5 @@
 ion-content {
-  --background: linear-gradient(to bottom, var(--ion-color-primary), #207bb0);
+  --background: linear-gradient(104deg, #256a93 0%, #2ca3ea 100%);
 }
 .main {
   width: 100%;
@@ -15,6 +15,10 @@ ion-content {
   ion-item {
     --background: none;
     opacity:1;
+  }
+
+  .logo {
+    text-align: center;
   }
 
   .header_flex {

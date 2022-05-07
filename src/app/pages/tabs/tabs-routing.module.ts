@@ -8,8 +8,16 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'account',
+        loadChildren: () => import('../account/account.module').then(m => m.AccountPageModule)
+      },
+      {
         path: 'work-order',
         loadChildren: () => import('../work-order/work-order.module').then(m => m.WorkOrderPageModule)
+      },
+      {
+        path: 'home',
+        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },
       {
         path: 'asset',
@@ -32,6 +40,10 @@ const routes: Routes = [
               import('../my-orders/my-orders.module').then(m => m.MyOrdersPageModule)
           }
         ]
+      },
+      {
+        path: 'conditions',
+        loadChildren: () => import('../terms-condition/condition.module').then(m => m.ConditionPageModule)
       },
       {
         path: '',
